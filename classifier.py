@@ -26,7 +26,6 @@ WEIGHTS_TRAVEL = {
     'none': 1.0
 }
 
-
 class Response:
     def __init__(self,
                  geographic_situation='none',
@@ -39,16 +38,28 @@ class Response:
             raise ValueError("Can't have negative number of people")
 
         self.geographic_situation = geographic_situation
-        self.symptoms = []
+        self.symptoms = symptoms
         self.people_coughing = people_coughing
         self.people_coughing_w_mask = people_coughing_w_mask
         self.wore_mask = wore_mask
 
-
 # example of user input
 response_example = Response('resident', ['cough', 'fever', 'body_pain'], 26, 15, False)
 
-def get_risk_score(response):
-    pass
+# get the maximum risk score
+def get_max_score():
+    score = 0
+    for symptom in WEIGHTS_SYMPTOMS:
+        score += WEIGHTS_SYMPTOMS[symptom] * WEIGHTS_TRAVEL['contacted']
 
-print(get_risk_score(response_example))
+    return score
+
+# get the risk score for this user
+def get_risk_score(response):
+    score = 0
+    for symptom in response.symptoms:
+        score += WEIGHTS_TRAVEL[response.geographic_situation] * WEIGHTS_SYMPTOMS[symptom]
+
+    return score / get_max_score()
+
+print("Your risk assessment score is: " + "{0:.0%}".format(get_risk_score(response_example)))
