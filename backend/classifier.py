@@ -61,5 +61,3 @@ def get_risk_score(response):
         score += WEIGHTS_TRAVEL[response.geographic_situation] * WEIGHTS_SYMPTOMS[symptom]
 
     return score / get_max_score()
-
-print("Your risk assessment score is: " + "{0:.0%}".format(get_risk_score(response_example)))
