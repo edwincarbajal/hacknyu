@@ -1,12 +1,12 @@
 from flask import Flask, request
-app = Flask(__name__)
+from classifier import get_risk_score, Response, response_example
 
-import classifier as clf
+app = Flask(__name__)
 
 # Returns the risk assessment score for COVID19
 @app.route("/", methods=['GET', 'POST'])
-def hello():
-    return "Your risk assessment score is: " + "{0:.0%}".format(clf.get_risk_score(clf.response_example))
+def main():
+    return "Your risk assessment score is: " + "{0:.0%}".format(get_risk_score(response_example))
 
 if __name__ == "__main__":
     app.run()
