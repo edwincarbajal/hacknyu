@@ -1,17 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import Assessment from '../components/assesment'
 import { Button, Form, Container, Grid, Header } from 'semantic-ui-react'
 import Data from '../data/'
-
-const getRiskScore = (symptoms) => {
-  axios.post("http://bwliang.pythonanywhere.com/", symptoms)
-    .then(function(response) {
-      console.log(response)
-    })
-    .catch(function(error) {
-      console.log(error)
-    })
-}
 
 class Wizard extends Component {
   static Page = ({ children }) => children;
@@ -21,7 +12,8 @@ class Wizard extends Component {
       step: 1,
       symptoms1: [],
       symptoms2: [],
-      symptoms3: []
+      symptoms3: [],
+      submitted: false
     }
   }
 
@@ -46,8 +38,21 @@ class Wizard extends Component {
       }))
   }
 
+  getRiskScore = symptoms => {
+    let _this = this;
+    console.log(_this);
+    axios.post("http://bwliang.pythonanywhere.com/", symptoms)
+      .then(function(response) {
+        _this.setState({ submitted: true, probability: response.data.probability })
+        console.log(response.data.probability)
+      })
+      .catch(function(error) {
+        console.log(error)
+      })
+  }
+
   render() {
-    const {step} = this.state;
+    const {step, submitted} = this.state;
     const isLastPage = (step === Object.keys(Data).length);
     const data = {
       symptoms1: this.state.symptoms1,
@@ -55,44 +60,66 @@ class Wizard extends Component {
       symptoms3: this.state.symptoms3
     };
     return (
-      <Form size="massive"
-        onSubmit={() => getRiskScore(data) }>
-        <Container>
-          <Header as='h3'>Do you have any of the following symtoms in the past 14 days?</Header>
-          <Grid>
-            {Data[step - 1].map((option, index) => (
-              <Grid.Row key={index}>
-                <Button basic fluid
-                  value={option}
-                  content={option}
-                  type="button"
-                  size="massive"
-                  style={{ textAlign: 'left' }}
-                  onClick={this.handleChange(`symptoms${step}`)}
-                />
-              </Grid.Row>
-            ))}
-          </Grid>
-        </Container>
-        <div className="buttons">
-          {step > 1 && (
-            <Button
-              type="button"
-              className="secondary"
-              onClick={this.prevStep}
-            >
-              « Previous
-            </Button>
-          )}
+      <>
+      {
+        submitted ? (
+          <Container>
+            <Assessment stats={this.state.probability} />
+          </Container>
+        )
+          : (
+            <Form size="massive"
+            style={{ padding: '25px 0' }}
+              onSubmit={() => this.getRiskScore(data) }>
+              <Container>
+                <Header as='h3'>Have you had any of the following symptoms in the past two weeks?</Header>
+                <Grid>
+                  {Data[step - 1].map((option, index) => (
+                    <Grid.Row key={index}>
+                      <Button basic fluid
+                        value={option}
+                        content={option}
+                        type="button"
+                        size="massive"
+                        style={{ textAlign: 'left' }}
+                        onClick={this.handleChange(`symptoms${step}`)}
+                      />
+                    </Grid.Row>
+                  ))}
+                </Grid>
+              </Container>
+              <div className="buttons">
+                {step > 1 && (
+                  <Container >
+                    <Button
+                      style={{ marginTop: '20px' }}
+                      type="button"
+                      className="secondary"
+                      onClick={this.prevStep}
+                    >
+                      « Previous
+                    </Button>
+                  </Container>
+                )}
 
-          {!isLastPage && <Button color="teal" type="button" onClick={this.nextStep}>Next »</Button>}
-          {isLastPage && (
-            <Button color="teal" type="submit">
-              Submit
-            </Button>
-          )}
-        </div>
-      </Form>
-    )}
+                {!isLastPage && (
+                  <Container>
+                    <Button style={{ marginTop: '20px' }} color="teal" type="button" onClick={this.nextStep}>Next »</Button>
+                  </Container>
+                )}
+                {isLastPage && (
+                  <Container>
+                    <Button style={{ marginTop: '20px' }} color="teal" type="submit">
+                      Submit
+                    </Button>
+                  </Container>
+                )}
+              </div>
+            </Form>
+          )
+      }
+      </>
+    )
+  }
 }
 export default Wizard

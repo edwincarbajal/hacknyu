@@ -2684,7 +2684,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"asap@npm:~2.0.6":
+"asap@npm:~2.0.3, asap@npm:~2.0.6":
   version: 2.0.6
   resolution: "asap@npm:2.0.6"
   checksum: 4fe2162661e6a16d954ae4566e9f9129ccfe51be55df6a298a33c4675971a2a4bb070d86a8977d64090572b12f6baf5a0e2147823cda01a19122156347250786
@@ -4078,6 +4078,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"core-js@npm:^1.0.0":
+  version: 1.2.7
+  resolution: "core-js@npm:1.2.7"
+  checksum: f0dbf07f92c985f5a9cd2a5e25df6f5593459bd3776cfb6326ca05aac4e3aa07d0d9cfbbd51fed3cf116f613247950bebb06fd506c5a3faa93104c6d2aba0f91
+  languageName: node
+  linkType: hard
+
 "core-js@npm:^2.4.0":
   version: 2.6.11
   resolution: "core-js@npm:2.6.11"
@@ -4158,6 +4165,17 @@ __metadata:
     safe-buffer: ^5.0.1
     sha.js: ^2.4.8
   checksum: 7c1a8a16c7fabdc36a14322e983be271e70b2ad971539cb1ab7b59f0f7770884e694d7b17fb5ac0acefa718bfaf2bca972120c078b85585b09013e5b14f39ce0
+  languageName: node
+  linkType: hard
+
+"create-react-class@npm:^15.6.0":
+  version: 15.6.3
+  resolution: "create-react-class@npm:15.6.3"
+  dependencies:
+    fbjs: ^0.8.9
+    loose-envify: ^1.3.1
+    object-assign: ^4.1.1
+  checksum: 201fe1c1daa14e435a03ccebb935881331922a27d6aa84358b5b15595bca799d3e1f528aed5816c6bd2eb7dffbd912268077609fea7f886c7a3eb294ebc8e262
   languageName: node
   linkType: hard
 
@@ -5059,6 +5077,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"encoding@npm:^0.1.11":
+  version: 0.1.12
+  resolution: "encoding@npm:0.1.12"
+  dependencies:
+    iconv-lite: ~0.4.13
+  checksum: 823f9cb34eb5ca0b46b6a95a58abdb09608de36e20ceca0b62ea08f897ee032a6be592e6ec141908a0f5ce3e9f330b4600175668a5f063a1799267458e4544c1
+  languageName: node
+  linkType: hard
+
 "end-of-stream@npm:^1.0.0, end-of-stream@npm:^1.1.0":
   version: 1.4.4
   resolution: "end-of-stream@npm:1.4.4"
@@ -5768,6 +5795,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"fbjs@npm:^0.8.9":
+  version: 0.8.17
+  resolution: "fbjs@npm:0.8.17"
+  dependencies:
+    core-js: ^1.0.0
+    isomorphic-fetch: ^2.1.1
+    loose-envify: ^1.0.0
+    object-assign: ^4.1.0
+    promise: ^7.1.1
+    setimmediate: ^1.0.5
+    ua-parser-js: ^0.7.18
+  checksum: 1c8ca1245e41129b1b48f8e6be03b01bd77359cd7a8931e699f2372e2fdaa7b268c8a67e7f16f8ec0ed9331a8ad8e0465766e1ff861fac2e44a3ba0d14a4cc12
+  languageName: node
+  linkType: hard
+
 "figgy-pudding@npm:^3.5.1":
   version: 3.5.1
   resolution: "figgy-pudding@npm:3.5.1"
@@ -6436,8 +6478,10 @@ fsevents@^1.2.7:
     install: ^0.13.0
     radar-sdk-js: ^1.1.0
     react: ^16.13.0
+    react-circular-progressbar: ^2.0.3
     react-dom: ^16.13.0
     react-scripts: 3.4.0
+    reactjs-percentage-circle: ^1.0.0
     semantic-ui-css: ^2.4.1
     semantic-ui-react: ^0.88.2
     survey-react: ^1.5.13
@@ -6819,7 +6863,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"iconv-lite@npm:0.4.24, iconv-lite@npm:^0.4.24, iconv-lite@npm:^0.4.4":
+"iconv-lite@npm:0.4.24, iconv-lite@npm:^0.4.24, iconv-lite@npm:^0.4.4, iconv-lite@npm:~0.4.13":
   version: 0.4.24
   resolution: "iconv-lite@npm:0.4.24"
   dependencies:
@@ -7452,7 +7496,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"is-stream@npm:^1.1.0":
+"is-stream@npm:^1.0.1, is-stream@npm:^1.1.0":
   version: 1.1.0
   resolution: "is-stream@npm:1.1.0"
   checksum: 0c43bc68eb748e970e6df1163a52ce9ec37bfa4c0161557b4524d640ac414934c74427ae8f49c91f55c7fac807f4407a0eb5c7b24ac0b9e78f203aa706bc4cfa
@@ -7539,6 +7583,16 @@ fsevents@^1.2.7:
   version: 3.0.1
   resolution: "isobject@npm:3.0.1"
   checksum: 68b5690353510167179980d57f1f2dd6f23f41e101d4518a15ddf1880de4a6f61f708dc88a5ef79ba0b0ddfe1ada644df5ff8520ceea0729ccf1b5dd98d514ce
+  languageName: node
+  linkType: hard
+
+"isomorphic-fetch@npm:^2.1.1":
+  version: 2.2.1
+  resolution: "isomorphic-fetch@npm:2.2.1"
+  dependencies:
+    node-fetch: ^1.0.1
+    whatwg-fetch: ">=0.10.0"
+  checksum: 8a85b0baa5d126d8b29fb05a82258e4a2958b4943d634222c4f1466f8b9ba663aef0162703dc5ad0df4741eb8ef9fd54bfa03cc6afb77a1de0b08c6e5a360ee1
   languageName: node
   linkType: hard
 
@@ -8601,7 +8655,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"loose-envify@npm:^1.0.0, loose-envify@npm:^1.1.0, loose-envify@npm:^1.4.0":
+"loose-envify@npm:^1.0.0, loose-envify@npm:^1.1.0, loose-envify@npm:^1.3.1, loose-envify@npm:^1.4.0":
   version: 1.4.0
   resolution: "loose-envify@npm:1.4.0"
   dependencies:
@@ -9172,6 +9226,16 @@ fsevents@^1.2.7:
     lower-case: ^2.0.1
     tslib: ^1.10.0
   checksum: fdcc8e7430853646851638cbe98805d92a4434fe00072035104747024d7b1661e9b4a3b972413cee94c69dc3373865b494d62235d50164cb582bd2cf5d676709
+  languageName: node
+  linkType: hard
+
+"node-fetch@npm:^1.0.1":
+  version: 1.7.3
+  resolution: "node-fetch@npm:1.7.3"
+  dependencies:
+    encoding: ^0.1.11
+    is-stream: ^1.0.1
+  checksum: 343443b902a275ef29cbf5e5c1416d4e716563bf170bdb54bb869f8eb89dfb1c01d91e5c94c57ea7cd8ad9e9ca6a9cf9af571094712cf30a2767d2db2d4506e1
   languageName: node
   linkType: hard
 
@@ -11114,6 +11178,15 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"promise@npm:^7.1.1":
+  version: 7.3.1
+  resolution: "promise@npm:7.3.1"
+  dependencies:
+    asap: ~2.0.3
+  checksum: 55567d002fb90247e300661031c073cb7d7ac1861861a6e9b2ae26323096a22aaf8181b38406d1d488ae4f59cc14be1210ec2b7b393943eac7faad35cdd0e313
+  languageName: node
+  linkType: hard
+
 "promise@npm:^8.0.3":
   version: 8.1.0
   resolution: "promise@npm:8.1.0"
@@ -11133,7 +11206,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.6.1, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2":
+"prop-types@npm:^15.5.10, prop-types@npm:^15.6.1, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2":
   version: 15.7.2
   resolution: "prop-types@npm:15.7.2"
   dependencies:
@@ -11354,6 +11427,15 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"react-addons-test-utils@npm:^15.3.2":
+  version: 15.6.2
+  resolution: "react-addons-test-utils@npm:15.6.2"
+  peerDependencies:
+    react-dom: ^15.4.2
+  checksum: 012773e4db7c274c96a4a1d27ce4fc788c74c322220fcaab6d6274138537071b47c78c0af27f234bcea2c846230fdba7034fc54d0f2f1cca26cdf7c09c59b26f
+  languageName: node
+  linkType: hard
+
 "react-app-polyfill@npm:^1.0.6":
   version: 1.0.6
   resolution: "react-app-polyfill@npm:1.0.6"
@@ -11365,6 +11447,15 @@ fsevents@^1.2.7:
     regenerator-runtime: ^0.13.3
     whatwg-fetch: ^3.0.0
   checksum: 0b61436544e1f9f61c3b2943ad7771efd797901851af200a35323f76f6c43205c8cb9b4d0515a95ceeac7710ba7773e6c6c7fa816f6262cddc6d1ee2c9102744
+  languageName: node
+  linkType: hard
+
+"react-circular-progressbar@npm:^2.0.3":
+  version: 2.0.3
+  resolution: "react-circular-progressbar@npm:2.0.3"
+  peerDependencies:
+    react: ^0.14.0 || ^15.0.0 || ^16.0.0
+  checksum: 8f6e723b507401cf9c68a991624e8f2e735d237a2edf84128e4b660525121c85c35ab29360e2de4300029ef1b0a18d91af0de276515b3de2f883404110b821f8
   languageName: node
   linkType: hard
 
@@ -11397,6 +11488,20 @@ fsevents@^1.2.7:
     strip-ansi: 6.0.0
     text-table: 0.2.0
   checksum: 3492cf6c62e6035decae4ce58bf97ae055339d4a6e43fe9464f8967e57b4354fb06afe43888d915c38dc53c702feb36582c300d365d84e84545c3457e307d36c
+  languageName: node
+  linkType: hard
+
+"react-dom@npm:^15.3.2":
+  version: 15.6.2
+  resolution: "react-dom@npm:15.6.2"
+  dependencies:
+    fbjs: ^0.8.9
+    loose-envify: ^1.1.0
+    object-assign: ^4.1.0
+    prop-types: ^15.5.10
+  peerDependencies:
+    react: ^15.6.2
+  checksum: 3fef80ec20c1c9528dd3adcab37c41c3ac19c52596f1172f43b5dc6ff26ca713e10e45f735f6afc9cfb935729e204e0bbf9e123d76a0ee889db300ae5ca5bb40
   languageName: node
   linkType: hard
 
@@ -11523,6 +11628,19 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"react@npm:^15.3.2":
+  version: 15.6.2
+  resolution: "react@npm:15.6.2"
+  dependencies:
+    create-react-class: ^15.6.0
+    fbjs: ^0.8.9
+    loose-envify: ^1.1.0
+    object-assign: ^4.1.0
+    prop-types: ^15.5.10
+  checksum: 3ba640fb64384c2b0e5a498a288c9fbe4a589e22f37567a0b3579a0ac23f6159145058a9dab43ed6adec1b82717d8896a24f8db96819f3cfb88995e066069aa4
+  languageName: node
+  linkType: hard
+
 "react@npm:^16.13.0":
   version: 16.13.0
   resolution: "react@npm:16.13.0"
@@ -11531,6 +11649,17 @@ fsevents@^1.2.7:
     object-assign: ^4.1.1
     prop-types: ^15.6.2
   checksum: 9f635d242c4937101ba8a234753078a6870eaaf2ec1d7f95f7c16a562be7473b55efb3e162c903bb0402b94f90dcc84ad22e11dc93387c5a0a2c39cb65b776d9
+  languageName: node
+  linkType: hard
+
+"reactjs-percentage-circle@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "reactjs-percentage-circle@npm:1.0.0"
+  dependencies:
+    react: ^15.3.2
+    react-addons-test-utils: ^15.3.2
+    react-dom: ^15.3.2
+  checksum: 0fb6bcffd5d4438d133ee82014f1ff673c3ab447caad19e9ac14d0021e35a8f3436d13bef01e2a7e85e503991939ac33316129fd1e7f4d06c8764afefae3f313
   languageName: node
   linkType: hard
 
@@ -12371,7 +12500,7 @@ resolve@1.1.7:
   languageName: node
   linkType: hard
 
-"setimmediate@npm:^1.0.4":
+"setimmediate@npm:^1.0.4, setimmediate@npm:^1.0.5":
   version: 1.0.5
   resolution: "setimmediate@npm:1.0.5"
   checksum: 41fe93be936a4d6d2393b08652e5a235b1d50a3d542e561ec3b14c2b75f543762e52d9c4f77097d70e5630e0f84469d27b3b5e4237ea0de17abcd55c776319ec
@@ -13520,6 +13649,13 @@ resolve@1.1.7:
   languageName: node
   linkType: hard
 
+"ua-parser-js@npm:^0.7.18":
+  version: 0.7.21
+  resolution: "ua-parser-js@npm:0.7.21"
+  checksum: b95c07f425eb66c14b6010fac559cce58a737e0a889f164957c9d6f4b219f18230504ac9582d40e4dca9dd5156c9183b1e72c99a1734e25aea1f1e6a22540d84
+  languageName: node
+  linkType: hard
+
 "unicode-canonical-property-names-ecmascript@npm:^1.0.4":
   version: 1.0.4
   resolution: "unicode-canonical-property-names-ecmascript@npm:1.0.4"
@@ -14030,7 +14166,7 @@ resolve@1.1.7:
   languageName: node
   linkType: hard
 
-"whatwg-fetch@npm:^3.0.0":
+"whatwg-fetch@npm:>=0.10.0, whatwg-fetch@npm:^3.0.0":
   version: 3.0.0
   resolution: "whatwg-fetch@npm:3.0.0"
   checksum: a3033a72d7300f899073ed30fe46e12ff7142ed06221879a610a919c01b8b26d3f82ac7a5c18c397a1cb6a95b3df95a644e45ead93c10872118fc0e961ea9f2c

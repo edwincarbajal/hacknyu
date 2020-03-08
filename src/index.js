@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'semantic-ui-css/semantic.min.css';
+import 'react-circular-progressbar/dist/styles.css';
 
 import Radar from 'radar-sdk-js';
 

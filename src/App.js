@@ -6,9 +6,11 @@ import Data from './data/';
 
 function App() {
   return (
-    <Container>
-      <Wizard />
-    </Container>
+    <div>
+      <Container>
+        <Wizard />
+      </Container>
+    </div>
   );
 }
 export default App;
