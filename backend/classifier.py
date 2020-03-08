@@ -23,9 +23,9 @@ WEIGHTS_SYMPTOMS = {
 
 # made these up, can use ML?
 WEIGHTS_TRAVEL = {
-    'resident': 2.5,
-    'visited': 2.0,
-    'contacted': 3.0,
+    'resident': 5,
+    'visited': 6,
+    'contacted': 10,
     'none': 1.0
 }
 
@@ -36,20 +36,18 @@ WEIGHT_INTERACTIONS = {
     'protection': 3.7
 }
 
-MAX_MAGNITUDE = 500
+MAX_MAGNITUDE = 30
 
 # on what magnitude of coughing people has this person interacted with
 def get_interaction_magnitude(people):
     if (people <= 0):
         return 0
+    elif (people <= 5):
+        return 5
     elif (people <= 10):
         return 10
     elif (people <= 20):
         return 20
-    elif (people <= 50):
-        return 50
-    elif (people <= 100):
-        return 100
     else:
         return MAX_MAGNITUDE
 
@@ -72,7 +70,7 @@ class Response:
         self.wore_mask = wore_mask
 
 # example of user input
-response_example = Response('contacted', ['fever', 'fatigue', 'cough', 'body_pain'], 50, 0, False)
+response_example = Response('contacted', ['Fever', 'Fatigue', 'Cough'], 29, 4, True)
 
 # get the maximum risk score
 def get_max_score():
