@@ -1,9 +1,9 @@
 import React from 'react';
 import axios from 'axios'
+import Container from './components/container'
 import Wizard from './container/Wizard'
-import Form1 from './pages/form1'
-import Form2 from './pages/form2'
-import Options from './data/'
+import Form from './pages/form'
+import Data from './data/'
 
 const getRiskScore = (symptoms) => {
   axios.post("/", symptoms)
@@ -17,8 +17,7 @@ const getRiskScore = (symptoms) => {
 
 function App() {
   return (
-    <div className="App">
-      <h1>Multistep / Form Wizard </h1>
+    <Container>
       <Wizard
         initialValues={{
           options1: [],
@@ -26,10 +25,15 @@ function App() {
         }}
         onSubmit={(values) => getRiskScore( JSON.stringify(values) ) }
       >
-        <Form1 options1={Options[0]} />
-        <Form2 options2={Options[1]} />
+        {Object.keys(Data).map((option, index) => (
+          <Form
+            key={index}
+            name={`options${index + 1}`}
+            symptoms={Data[index]}
+          />
+        ))}
       </Wizard>
-    </div>
+    </Container>
   );
 }
 export default App;

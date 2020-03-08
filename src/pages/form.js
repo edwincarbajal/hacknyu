@@ -1,25 +1,25 @@
 import React from 'react'
 import Wizard from '../container/Wizard'
-import { Form } from 'semantic-ui-react'
+import { Form, Header } from 'semantic-ui-react'
 import { Field, FieldArray } from 'formik';
 
-export default ({ options2 }) => (
+export default ({ symptoms, name }) => (
   <FieldArray
     name="options"
     render={arrayHelpers => (
         <Wizard.Page>
           <Form.Field>
-            <label>Do you have any of the following symtoms in the past 14 days?</label>
+            <Header as='h3'>Do you have any of the following symtoms in the past 14 days?</Header>
             <Field
-              name="options2"
+              name={name}
               component="select"
               type="text"
               placeholder=""
               multiple={true}
             >
-              {options2.map(o => (
-                <option key={o} value={o}>
-                  {o}
+              {symptoms.map(option => (
+                <option key={option} value={option}>
+                  {option}
                 </option>
               ))}
             </Field>
