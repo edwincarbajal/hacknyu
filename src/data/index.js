@@ -1,4 +1,20 @@
 export default {
-  0: ['Fever', 'Cough', 'Fatigue', 'Sputum', 'Shortness of Breath', 'Body Pain', 'None of the above'],
-  1: ['Sore Throat', 'Headache', 'Chill', 'Nasal Congestion', 'Nausea', 'Diarrhea', 'None of the above']
+  0: ['Resident of China/South Korea/Japan/Iran/Italy',
+    'Visited one of the above countries',
+    'Contacted someone from one of the above countries',
+    'None of the above'],
+  1: ['Fever',
+    'Cough',
+    'Fatigue',
+    'Sputum',
+    'Shortness of Breath',
+    'Body Pain',
+    'None of the above'],
+  2: ['Sore Throat',
+    'Headache',
+    'Chill',
+    'Nasal Congestion',
+    'Nausea',
+    'Diarrhea',
+    'None of the above']
 }

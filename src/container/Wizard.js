@@ -21,6 +21,7 @@ class Wizard extends Component {
       step: 1,
       symptoms1: [],
       symptoms2: [],
+      symptoms3: []
     }
   }
 
@@ -50,11 +51,12 @@ class Wizard extends Component {
     const isLastPage = (step === Object.keys(Data).length);
     const data = {
       symptoms1: this.state.symptoms1,
-      symptoms2: this.state.symptoms2
+      symptoms2: this.state.symptoms2,
+      symptoms3: this.state.symptoms3
     };
     return (
       <Form size="massive"
-        onSubmit={(symp) => getRiskScore( (data) ) }>
+        onSubmit={symp => getRiskScore(data) }>
         <Container>
           <Grid>
             {Data[step - 1].map((option, index) => (

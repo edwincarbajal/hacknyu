@@ -23,10 +23,10 @@ WEIGHTS_SYMPTOMS = {
 
 # made these up, can use ML?
 WEIGHTS_TRAVEL = {
-    'resident': 5,
-    'visited': 6,
-    'contacted': 10,
-    'none': 1.0
+    'Resident of China/South Korea/Japan/Iran/Italy': 5,
+    'Visited one of the above countries': 6,
+    'Contacted someone from one of the above countries': 10,
+    'None of the above': 1.0
 }
 
 # also made these up, can use ML?
@@ -54,7 +54,7 @@ def get_interaction_magnitude(people):
 # represents a response object from the frontend
 class Response:
     def __init__(self,
-                 geographic_situation='none',
+                 geographic_situation='None of the above',
                  symptoms=[],
                  people_coughing=0,
                  people_coughing_w_mask=0,
@@ -70,7 +70,7 @@ class Response:
         self.wore_mask = wore_mask
 
 # example of user input
-response_example = Response('contacted', ['Fever', 'Fatigue', 'Cough'], 29, 4, True)
+response_example = Response('Contacted someone from one of the above countries', ['Fever', 'Fatigue', 'Cough'], 29, 4, True)
 
 # get the maximum risk score
 def get_max_score():
@@ -78,7 +78,7 @@ def get_max_score():
 
     # has EVERY symptom
     for symptom in WEIGHTS_SYMPTOMS:
-        score += WEIGHTS_SYMPTOMS[symptom] * WEIGHTS_TRAVEL['contacted']
+        score += WEIGHTS_SYMPTOMS[symptom] * WEIGHTS_TRAVEL['Contacted someone from one of the above countries']
 
     # and NO protection meeting everyone coughing
     score += MAX_MAGNITUDE * WEIGHT_INTERACTIONS['coughing']
