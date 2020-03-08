@@ -5,26 +5,10 @@ import Wizard from './container/Wizard'
 import Form from './pages/form'
 import Data from './data/'
 
-const getRiskScore = (symptoms) => {
-  axios.post("http://bwliang.pythonanywhere.com/", symptoms)
-    .then(function(response) {
-      console.log(response)
-    })
-    .catch(function(error) {
-      console.log(error)
-    })
-}
-
 function App() {
   return (
     <Container>
-      <Wizard
-        initialValues={{
-          options1: [],
-          options2: []
-        }}
-        onSubmit={(values) => getRiskScore( JSON.stringify(values) ) }
-      >
+      <Wizard>
         {Object.keys(Data).map((option, index) => (
           <Form
             key={index}

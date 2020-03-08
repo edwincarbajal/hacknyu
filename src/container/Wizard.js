@@ -1,7 +1,18 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 import Options from '../pages/form'
 import { Button, Form, Container, Grid } from 'semantic-ui-react'
 import Data from '../data/'
+
+const getRiskScore = (symptoms) => {
+  axios.post("http://bwliang.pythonanywhere.com/", symptoms)
+    .then(function(response) {
+      console.log(response)
+    })
+    .catch(function(error) {
+      console.log(error)
+    })
+}
 
 class Wizard extends Component {
   static Page = ({ children }) => children;
@@ -37,9 +48,14 @@ class Wizard extends Component {
 
   render() {
     const {step} = this.state;
-    const isLastPage = step == Data.length;
+    const isLastPage = (step == Object.keys(Data).length);
+    const data = {
+      symptoms1: this.state.symptoms1,
+      symptoms2: this.state.symptoms2
+    };
     return (
-      <Form size="massive">
+      <Form size="massive"
+        onSubmit={(symp) => getRiskScore( (data) ) }>
         <Container>
           <Grid>
             {Data[step - 1].map((option, index) => (
@@ -61,13 +77,13 @@ class Wizard extends Component {
             <Button
               type="button"
               className="secondary"
-              onClick={this.previous}
+              onClick={this.prevStep}
             >
               « Previous
             </Button>
           )}
 
-          {!isLastPage && <Button color="teal" type="submit">Next »</Button>}
+          {!isLastPage && <Button color="teal" type="button" onClick={this.nextStep}>Next »</Button>}
           {isLastPage && (
             <Button color="teal" type="submit">
               Submit
