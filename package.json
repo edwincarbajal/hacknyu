@@ -10,12 +10,14 @@
     "axios": "^0.19.2",
     "formik": "^2.1.4",
     "formik-semantic-ui": "^0.10.0",
+    "install": "^0.13.0",
     "radar-sdk-js": "^1.1.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-scripts": "3.4.0",
     "semantic-ui-css": "^2.4.1",
-    "semantic-ui-react": "^0.88.2"
+    "semantic-ui-react": "^0.88.2",
+    "survey-react": "^1.5.13"
   },
   "scripts": {
     "start": "react-scripts start",
