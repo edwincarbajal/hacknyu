@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Button, Form } from 'semantic-ui-react'
 import { Formik } from 'formik';
 
 class Wizard extends Component {
@@ -45,27 +46,27 @@ class Wizard extends Component {
         enableReinitialize={false}
         onSubmit={this.handleSubmit}
         render={({ values, handleSubmit, isSubmitting, handleReset }) => (
-          <form onSubmit={handleSubmit}>
+          <Form size="massive" onSubmit={handleSubmit}>
             {activePage}
             <div className="buttons">
               {page > 0 && (
-                <button
+                <Button
                   type="button"
                   className="secondary"
                   onClick={this.previous}
                 >
                   « Previous
-                </button>
+                </Button>
               )}
 
-              {!isLastPage && <button type="submit">Next »</button>}
+              {!isLastPage && <Button type="submit">Next »</Button>}
               {isLastPage && (
-                <button type="submit" disabled={isSubmitting}>
+                <Button type="submit" disabled={isSubmitting}>
                   Submit
-                </button>
+                </Button>
               )}
             </div>
-          </form>
+          </Form>
         )}
       />
     );
