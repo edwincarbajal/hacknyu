@@ -59,6 +59,7 @@ class Wizard extends Component {
       symptoms2: this.state.symptoms2,
       symptoms3: this.state.symptoms3
     };
+    let currQ = 0;
     return (
       <>
       {
@@ -72,7 +73,7 @@ class Wizard extends Component {
             style={{ padding: '25px 0' }}
               onSubmit={() => this.getRiskScore(data) }>
               <Container>
-                <Header as='h3'>Have you had any of the following symptoms in the past two weeks?</Header>
+                <Header as='h3'>{(step - 1 < 1) ? `${step}. Please select an option below:` : `${step}. Have you had any of the following symptoms in the past two weeks?`}</Header>
                 <Grid>
                   {Data[step - 1].map((option, index) => (
                     <Grid.Row key={index}>
