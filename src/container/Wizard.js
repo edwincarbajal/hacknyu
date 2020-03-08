@@ -4,6 +4,8 @@ import Assessment from '../components/assesment'
 import { Button, Form, Container, Grid, Header } from 'semantic-ui-react'
 import Data from '../data/'
 
+let buttons = {};
+
 class Wizard extends Component {
   static Page = ({ children }) => children;
   constructor(props) {
@@ -13,8 +15,19 @@ class Wizard extends Component {
       symptoms1: [],
       symptoms2: [],
       symptoms3: [],
-      submitted: false
+      submitted: false,
     }
+  }
+
+  componentDidMount() {
+    let keys = Object.keys(Data);
+
+    keys.forEach((k, i) => {
+      Data[k].map((s, i) => {
+        buttons[`${s}${i}`] = false;
+      })
+    })
+    console.log(buttons);
   }
 
   nextStep = () => {
@@ -31,8 +44,9 @@ class Wizard extends Component {
     })
   }
 
-  handleChange = input => event => {
+  handleChange = (input, index) => event => {
       const val = event.target.value;
+      buttons[`${val}${index}`] = true;
       this.setState(prevState => ({
         [input]: [...prevState[input], val]
       }))
@@ -77,13 +91,18 @@ class Wizard extends Component {
                 <Grid>
                   {Data[step - 1].map((option, index) => (
                     <Grid.Row key={index}>
-                      <Button basic fluid
+                      <Button basic fluid toggle
+                        active={
+                          buttons[`${option}${index}`] ? true : false
+                        }
+                        key={index}
+                        index={index}
                         value={option}
                         content={option}
                         type="button"
                         size="massive"
                         style={{ textAlign: 'left' }}
-                        onClick={this.handleChange(`symptoms${step}`)}
+                        onClick={this.handleChange(`symptoms${step}`, index)}
                       />
                     </Grid.Row>
                   ))}
