@@ -6,7 +6,7 @@ import Form from './pages/form'
 import Data from './data/'
 
 const getRiskScore = (symptoms) => {
-  axios.post("/", symptoms)
+  axios.post("http://bwliang.pythonanywhere.com/", symptoms)
     .then(function(response) {
       console.log(response)
     })

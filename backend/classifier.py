@@ -7,25 +7,25 @@ import sys
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
 WEIGHTS_SYMPTOMS = {
-    'fever': 87.9,
-    'cough': 67.7,
-    'fatigue': 38.1,
-    'sputum': 33.4,
-    'shortness_breath': 18.6,
-    'body_pain': 14.8,
-    'sore_throat': 13.9,
-    'headache': 13.6,
-    'chills': 11.4,
-    'nasal_congestion': 4.8,
-    'nausea': 5.0,
-    'diarrhea': 3.7
+    'Fever': 87.9,
+    'Cough': 67.7,
+    'Fatigue': 38.1,
+    'Sputum': 33.4,
+    'Shortness of Breath': 18.6,
+    'Body Pain': 14.8,
+    'Sore Throat': 13.9,
+    'Headache': 13.6,
+    'Chill': 11.4,
+    'Nasal Congestion': 4.8,
+    'Nausea': 5.0,
+    'Diarrhea': 3.7
 }
 
 # made these up, can use ML?
 WEIGHTS_TRAVEL = {
-    'resident': 2.5,
-    'visited': 2.0,
-    'contacted': 3.0,
+    'resident': 5,
+    'visited': 6,
+    'contacted': 10,
     'none': 1.0
 }
 
@@ -36,20 +36,18 @@ WEIGHT_INTERACTIONS = {
     'protection': 3.7
 }
 
-MAX_MAGNITUDE = 500
+MAX_MAGNITUDE = 30
 
 # on what magnitude of coughing people has this person interacted with
 def get_interaction_magnitude(people):
     if (people <= 0):
         return 0
+    elif (people <= 5):
+        return 5
     elif (people <= 10):
         return 10
     elif (people <= 20):
         return 20
-    elif (people <= 50):
-        return 50
-    elif (people <= 100):
-        return 100
     else:
         return MAX_MAGNITUDE
 
@@ -72,7 +70,7 @@ class Response:
         self.wore_mask = wore_mask
 
 # example of user input
-response_example = Response('contacted', ['fever', 'fatigue', 'cough', 'body_pain'], 50, 0, False)
+response_example = Response('contacted', ['Fever', 'Fatigue', 'Cough'], 29, 4, True)
 
 # get the maximum risk score
 def get_max_score():
