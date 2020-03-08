@@ -1,26 +1,65 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Wizard from './container/Wizard'
+import Options from './data/'
+import { Field, ErrorMessage, FieldArray } from 'formik';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Multistep / Form Wizard </h1>
+      <Wizard
+        initialValues={{
+          options1: [],
+          options2: []
+        }}
+        onSubmit={(values) => alert( JSON.stringify(values) ) } // submit to backend here
+      >
+        <FieldArray
+          name="options"
+          render={arrayHelpers => (
+              <Wizard.Page>
+                <div>
+                  <label>Do you have any of the following symtoms in the past 14 days?</label>
+                  <Field
+                    name="options1"
+                    component="select"
+                    type="text"
+                    placeholder=""
+                    multiple={true}
+                  >
+                    {Options[0].map(o => (
+                      <option key={o} value={o}>
+                        {o}
+                      </option>
+                    ))}
+                  </Field>
+                </div>
+              </Wizard.Page>
+          )}
+        />
+        <FieldArray
+          name="options"
+          render={arrayHelpers => (
+            <Wizard.Page>
+              <label>Do you have any of the following symtoms in the past 14 days?</label>
+              <Field
+                name="options2"
+                component="select"
+                type="text"
+                placeholder=""
+                multiple={true}
+              >
+                {Options[1].map(o => (
+                  <option key={o} value={o}>
+                    {o}
+                  </option>
+                ))}
+              </Field>
+            </Wizard.Page>
+          )}
+        />
+      </Wizard>
     </div>
   );
 }
-
 export default App;
