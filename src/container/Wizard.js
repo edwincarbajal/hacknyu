@@ -1,8 +1,7 @@
-import React, { Component } from 'react'
-import axios from 'axios'
-import Options from '../pages/form'
-import { Button, Form, Container, Grid } from 'semantic-ui-react'
-import Data from '../data/'
+import React, { Component } from 'react';
+import axios from 'axios';
+import { Button, Form, Container, Grid } from 'semantic-ui-react';
+import Data from '../data/';
 
 const getRiskScore = (symptoms) => {
   axios.post("http://bwliang.pythonanywhere.com/", symptoms)
@@ -48,7 +47,7 @@ class Wizard extends Component {
 
   render() {
     const {step} = this.state;
-    const isLastPage = (step == Object.keys(Data).length);
+    const isLastPage = (step === Object.keys(Data).length);
     const data = {
       symptoms1: this.state.symptoms1,
       symptoms2: this.state.symptoms2

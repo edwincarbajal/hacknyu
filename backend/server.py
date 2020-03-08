@@ -14,12 +14,12 @@ def main():
     print('POST request has been received! Getting the classifier\'s results...')
     req = json.loads(request.get_data())
 
-    if 'None of the above' in req['options1']:
-        req['options1'] = []
-    if 'None of the above' in req['options2']:
-        req['options2'] = []
+    if 'None of the above' in req['symptoms1']:
+        req['symptoms1'] = []
+    if 'None of the above' in req['symptoms2']:
+        req['symptoms2'] = []
 
-    survey_response = Response('contacted', req['options1'] + req['options2'], 10, 0, False)
+    survey_response = Response('contacted', req['symptoms1'] + req['symptoms2'], 10, 0, False)
     res = {'probability': "{0:.0%}".format(get_risk_score(survey_response))}
 
     # if there is a json object in there and it's not empty
