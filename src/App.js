@@ -1,7 +1,18 @@
 import React from 'react';
+import axios from 'axios'
 import Wizard from './container/Wizard'
 import Options from './data/'
 import { Field, ErrorMessage, FieldArray } from 'formik';
+
+const getRiskScore = (symptoms) => {
+  axios.post("/", symptoms)
+    .then(function(response) {
+      console.log(response)
+    })
+    .catch(function(error) {
+      console.log(error)
+    })
+}
 
 function App() {
   return (
@@ -12,7 +23,7 @@ function App() {
           options1: [],
           options2: []
         }}
-        onSubmit={(values) => alert( JSON.stringify(values) ) } // submit to backend here
+        onSubmit={(values) => getRiskScore( JSON.stringify(values) ) } // submit to backend here
       >
         <FieldArray
           name="options"
