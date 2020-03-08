@@ -1,3 +1,7 @@
+import os.path
+import sys
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+
 from flask import Flask, request
 from classifier import get_risk_score, Response, response_example
 

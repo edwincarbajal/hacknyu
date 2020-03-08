@@ -2,6 +2,10 @@
 # classifier.py - returns a risk assessment probability for COVID19
 
 # from official probability data
+import os.path
+import sys
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+
 WEIGHTS_SYMPTOMS = {
     'fever': 87.9,
     'cough': 67.7,
