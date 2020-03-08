@@ -7,18 +7,18 @@ import sys
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
 WEIGHTS_SYMPTOMS = {
-    'fever': 87.9,
-    'cough': 67.7,
-    'fatigue': 38.1,
-    'sputum': 33.4,
-    'shortness_breath': 18.6,
-    'body_pain': 14.8,
-    'sore_throat': 13.9,
-    'headache': 13.6,
-    'chills': 11.4,
-    'nasal_congestion': 4.8,
-    'nausea': 5.0,
-    'diarrhea': 3.7
+    'Fever': 87.9,
+    'Cough': 67.7,
+    'Fatigue': 38.1,
+    'Sputum': 33.4,
+    'Shortness of Breath': 18.6,
+    'Body Pain': 14.8,
+    'Sore Throat': 13.9,
+    'Headache': 13.6,
+    'Chill': 11.4,
+    'Nasal Congestion': 4.8,
+    'Nausea': 5.0,
+    'Diarrhea': 3.7
 }
 
 # made these up, can use ML?
