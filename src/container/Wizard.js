@@ -56,7 +56,7 @@ class Wizard extends Component {
     };
     return (
       <Form size="massive"
-        onSubmit={symp => getRiskScore(data) }>
+        onSubmit={() => getRiskScore(data) }>
         <Container>
           <Header as='h3'>Do you have any of the following symtoms in the past 14 days?</Header>
           <Grid>
