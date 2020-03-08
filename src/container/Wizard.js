@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import Options from '../pages/form'
-import { Button, Form, Container, Grid } from 'semantic-ui-react'
+import { Button, Form, Container, Grid, Header } from 'semantic-ui-react'
 import Data from '../data/'
 
 const getRiskScore = (symptoms) => {
@@ -48,7 +48,7 @@ class Wizard extends Component {
 
   render() {
     const {step} = this.state;
-    const isLastPage = (step == Object.keys(Data).length);
+    const isLastPage = (step === Object.keys(Data).length);
     const data = {
       symptoms1: this.state.symptoms1,
       symptoms2: this.state.symptoms2
@@ -57,6 +57,7 @@ class Wizard extends Component {
       <Form size="massive"
         onSubmit={(symp) => getRiskScore( (data) ) }>
         <Container>
+          <Header as='h3'>Do you have any of the following symtoms in the past 14 days?</Header>
           <Grid>
             {Data[step - 1].map((option, index) => (
               <Grid.Row key={index}>
