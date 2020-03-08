@@ -1,75 +1,80 @@
 import React, { Component } from 'react'
-import { Button, Form } from 'semantic-ui-react'
-import { Formik } from 'formik';
+import Options from '../pages/form'
+import { Button, Form, Container, Grid } from 'semantic-ui-react'
+import Data from '../data/'
 
 class Wizard extends Component {
   static Page = ({ children }) => children;
   constructor(props) {
     super(props);
     this.state = {
-      page: 0,
-      values: props.initialValues,
+      step: 1,
+      symptoms1: [],
+      symptoms2: [],
     }
   }
 
-  next = values => this.setState(state => ({
-    page: Math.min(state.page + 1, this.props.children.length - 1),
-    values,
-  }));
+  nextStep = () => {
+    const { step } = this.state
+    this.setState({
+        step : step + 1
+    })
+  }
 
-  previous = () => this.setState(state => ({
-    page: Math.max(state.page - 1, 0),
-  }));
+  prevStep = () => {
+    const { step } = this.state
+    this.setState({
+        step : step - 1
+    })
+  }
 
-  handleSubmit = (values, bag) => {
-    const { children, onSubmit } = this.props;
-    const { page } = this.state;
-    const isLastPage = page === React.Children.count(children) - 1;
-    if (isLastPage) {
-      this.setState(state => ({ values }));
-      return onSubmit(values, bag);
-    } else {
-      bag.setTouched({});
-      bag.setSubmitting(false);
-      this.next(values);
-    }
-  };
+  handleChange = input => event => {
+      const val = event.target.value;
+      this.setState(prevState => ({
+        [input]: [...prevState[input], val]
+      }))
+  }
 
   render() {
-    const { children } = this.props;
-    const { page, values } = this.state;
-    const activePage = React.Children.toArray(children)[page];
-    const isLastPage = page === React.Children.count(children) - 1;
+    const {step} = this.state;
+    const isLastPage = step == Data.length;
     return (
-      <Formik
-        initialValues={values}
-        enableReinitialize={false}
-        onSubmit={this.handleSubmit}
-        render={({ values, handleSubmit, isSubmitting, handleReset }) => (
-          <Form size="massive" onSubmit={handleSubmit}>
-            {activePage}
-            <div className="buttons">
-              {page > 0 && (
-                <Button
+      <Form size="massive">
+        <Container>
+          <Grid>
+            {Data[step - 1].map((option, index) => (
+              <Grid.Row key={index}>
+                <Button basic fluid
+                  value={option}
+                  content={option}
                   type="button"
-                  className="secondary"
-                  onClick={this.previous}
-                >
-                  « Previous
-                </Button>
-              )}
+                  size="massive"
+                  style={{ textAlign: 'left' }}
+                  onClick={this.handleChange(`symptoms${step}`)}
+                />
+              </Grid.Row>
+            ))}
+          </Grid>
+        </Container>
+        <div className="buttons">
+          {step > 1 && (
+            <Button
+              type="button"
+              className="secondary"
+              onClick={this.previous}
+            >
+              « Previous
+            </Button>
+          )}
 
-              {!isLastPage && <Button type="submit">Next »</Button>}
-              {isLastPage && (
-                <Button type="submit" disabled={isSubmitting}>
-                  Submit
-                </Button>
-              )}
-            </div>
-          </Form>
-        )}
-      />
-    );
-  }
+          {!isLastPage && <Button color="teal" type="submit">Next »</Button>}
+          {isLastPage && (
+            <Button color="teal" type="submit">
+              Submit
+            </Button>
+          )}
+        </div>
+      </Form>
+    )}
 }
 export default Wizard

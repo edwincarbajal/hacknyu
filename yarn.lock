@@ -6370,11 +6370,13 @@ fsevents@^1.2.7:
     axios: ^0.19.2
     formik: ^2.1.4
     formik-semantic-ui: ^0.10.0
+    install: ^0.13.0
     react: ^16.13.0
     react-dom: ^16.13.0
     react-scripts: 3.4.0
     semantic-ui-css: ^2.4.1
     semantic-ui-react: ^0.88.2
+    survey-react: ^1.5.13
   languageName: unknown
   linkType: soft
 
@@ -6958,6 +6960,13 @@ fsevents@^1.2.7:
     strip-ansi: ^5.1.0
     through: ^2.3.6
   checksum: 316d11422781787876a022e6c222313231f4c245b73ca769d17fd05f4ebe8b4763ac94f83db6dfc236fc7d0086e2f3175386b7017b561dadb22e7087fd9faa2c
+  languageName: node
+  linkType: hard
+
+"install@npm:^0.13.0":
+  version: 0.13.0
+  resolution: "install@npm:0.13.0"
+  checksum: e6f64a9ed1917cdf951bf834e16b7f9bf225d7af80fd06cf07001562f051bc1fe1c02ab27efe50de117c481fb157a53f57f89b0181656aadd9a58b8bad83ce22
   languageName: node
   linkType: hard
 
@@ -13015,6 +13024,16 @@ resolve@1.15.0:
   dependencies:
     has-flag: ^4.0.0
   checksum: 932a1d07cd46dc7c5b189e18bf9cba4484cc331a23befbfdffe908576b67d83f5e9313cca093cdc72f807b50f89edb60d8b1befd42db4718e2b7c704a289da66
+  languageName: node
+  linkType: hard
+
+"survey-react@npm:^1.5.13":
+  version: 1.5.13
+  resolution: "survey-react@npm:1.5.13"
+  peerDependencies:
+    react: ^16.5.0
+    react-dom: ^16.5.0
+  checksum: 1f5305a52ef2e52c73b517e56cc5e6b2f177be135ea65038a295535f63b6383cda06e50c6b8f947f553a08dda1c02bbd4e749e4a84b2a10732b60de30a761982
   languageName: node
   linkType: hard
 
