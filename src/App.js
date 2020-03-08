@@ -7,15 +7,7 @@ import Data from './data/';
 function App() {
   return (
     <Container>
-      <Wizard>
-        {Object.keys(Data).map((option, index) => (
-          <Form
-            key={index}
-            name={`options${index + 1}`}
-            symptoms={Data[index]}
-          />
-        ))}
-      </Wizard>
+      <Wizard />
     </Container>
   );
 }

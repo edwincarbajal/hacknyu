@@ -13,7 +13,6 @@ const ButtonOptions = ({ content, handleChange }) => (
 
 export default ({symptoms, handleChange}) => (
   <Form.Field>
-    <Header as='h3'>Have you had any of the following symptoms in the past 14 days?</Header>
     <Grid>
       {symptoms.map((option, index) => (
         <Grid.Row key={index}>

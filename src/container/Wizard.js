@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import { Button, Form, Container, Grid } from 'semantic-ui-react';
-import Data from '../data/';
+import React, { Component } from 'react'
+import axios from 'axios'
+import { Button, Form, Container, Grid, Header } from 'semantic-ui-react'
+import Data from '../data/'
 
 const getRiskScore = (symptoms) => {
   axios.post("http://bwliang.pythonanywhere.com/", symptoms)
@@ -58,6 +58,7 @@ class Wizard extends Component {
       <Form size="massive"
         onSubmit={symp => getRiskScore(data) }>
         <Container>
+          <Header as='h3'>Do you have any of the following symtoms in the past 14 days?</Header>
           <Grid>
             {Data[step - 1].map((option, index) => (
               <Grid.Row key={index}>
