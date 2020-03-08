@@ -41,7 +41,7 @@ class Wizard extends Component {
   getRiskScore = symptoms => {
     let _this = this;
     console.log(_this);
-    axios.post("http://bwliang.pythonanywhere.com/", symptoms)
+    axios.post("https://bwliang.pythonanywhere.com/", symptoms)
       .then(function(response) {
         _this.setState({ submitted: true, probability: response.data.probability })
         console.log(response.data.probability)
