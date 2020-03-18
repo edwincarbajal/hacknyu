@@ -24,10 +24,9 @@ class Wizard extends Component {
 
     keys.forEach((k, i) => {
       Data[k].map((s, i) => {
-        buttons[`${s}${i}`] = false;
+        return buttons[`${s}${i}`] = false;
       })
     })
-    console.log(buttons);
   }
 
   nextStep = () => {
@@ -73,7 +72,6 @@ class Wizard extends Component {
       symptoms2: this.state.symptoms2,
       symptoms3: this.state.symptoms3
     };
-    let currQ = 0;
     return (
       <>
       {

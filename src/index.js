@@ -14,7 +14,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 Radar.trackOnce((status, location, user, events) => {
     if (status === Radar.STATUS.SUCCESS) {
-        console.log('it works.... I guess?')
+        console.log('Radar Success!')
     }
 });
 
