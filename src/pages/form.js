@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Header, Button, Grid } from 'semantic-ui-react';
+import { Form, Button, Grid } from 'semantic-ui-react';
 
 const ButtonOptions = ({ content, handleChange }) => (
   <Button basic fluid

@@ -6,6 +6,7 @@
     "npm": "6.13.4",
     "node": "13.6.0"
   },
+  "proxy": "https://bwliang.pythonanywhere.com",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
