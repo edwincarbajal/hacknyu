@@ -29,3 +29,5 @@ In the `backend/` directory, follow these steps:
 
 **Commands may vary if you are on a Windows OS, reference [this](https://flask.palletsprojects.com/en/1.1.x/installation/#installation). Also, don't forget to `deactivate` when you are done.
 
+EDIT: We got featured on Radar's [blog](https://radar.io/blog/students-build-apps-with-radar)!
+
